@@ -39,10 +39,8 @@ script:
 deploy:
     provider: releases
     api_key:
-        secure: tc39cVMtVMHG8vU5R2KeFeXqMqkKReLJzIaG76Xl14U3Yg6aeYN/tNwmGRtMqIo//W3mckOkJWEs0A/cGCxyJWmYT6UzjrONcRgnECfG+wUrcUyKX4FHDH/hFH9XeWUNPGg86lc1Q10jOrbOxowIfaKAGoenZylv6EDZ/9Zzc8ZfP+K5/ettmjFUXnKAz0zXE1osD7BDq8zGroiZzN0vkIbXHjFPV/joOWuzsvL9Ylb8IUgBScSLFqZK5hgRdrXT9bv9iIj15P/KQCHvzlS9x3/sHTSENd8JKfCaYxlFNY1V2BGgzswSxF4S0ONEGeO2XJvICQowG06ZR1xJ1Y5BDWMttbjcJ+ehTBll81phT61dlQCIMk7BZ3qCitbFvv0eI1fPpQLZRi3GiBqQuuQZjqhrxmyCb18hPqStE9EdTTi7E4bsvVQavy+RqOxL7SbsTUZ/bNaV9MqtjrsrXCnh8v/C+tt5IYR6aurDU/jvAb3/vrLfmbdvIavmFN/gfVDJvnXoQoKsT0Y3OC4vCXf08sFyw/u8NGVe7myEXsa2OV8apUc9jPWi8jIaF8at7cWZYySR9n0JXG6a9/nuTSc/jc2FGTPfoVecFOW0rYhrXoArY5RfAlTwyYJ4T5ff7lapQUdcu+GAjwORC2ii+DSlvfI2oe1WHGmmYiC7V+yYLyE=
+        secure: gDmVNYonWVTJ76WpnODUBwNz6yrEXYHiliX9VJ0wOUxPtGaOQ/H3Q7bplaU+bEF66gvICeVLiatoJXUkc6UlcT0TG7kvifLnEu/GMO4PD7eqmu9F8oOdwiq+pZCOZY3hPTK04ma8Elp6M+G/Xxgz1qOLtwL4BCLjn+oheMbxwJrcspoK8tx84FiyoKOphu9MRqm/xmslJ+2gvlUF/RbeKy2qa6im4eIcYEmGZAUcs0hHESC+cCCOf0F/S4VMXVgAnxcVqhXc3ZO8a/y5YOnmDJZJehGPr+m+H1tRL0bD+WLj35/kMjNxp0geJpmNLFszppQ2HmNQ0mbfMnRUaK/sPceKoD7Whivp9vbdMEv1lMsXPWLmMF0nbbCPWdI2Bl4Vq+KKL0OjEdUAd1/eIrcl1k2b5n+PbSCDxnf8C2gFUiF5QqBhlID6LGtfL5bJxq5CPZlLskTaepSjp7yPdLPwA2x+TU+dZNSHOVg+g/R6FxPKWDKIVih3IBKTGF5qk6GM7+NFCZ+amvxR3IzuU7l3Tirnm8mdKrVNGCPru1se0mVrRp01PG/gm75g4UA+iFAi+S5AQEB7llop0lhgGs7DbWjZDESnXMGEy5kDZBeovgZphBqVhlmdMDtR3PynxpPyGT+EpLxTFEIHkr69m1Rkqz639xNRsRuBlAFkfE4i1eo=
     file_glob: true
     file: out/*
     skip_cleanup: true
     draft: true
-    on:
-        repo: fofix/win-dependencies
