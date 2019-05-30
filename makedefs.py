@@ -112,10 +112,12 @@ for implib in implibs:
     dash_l_name = re.match(r'^lib(.*?)(?:\.dll)?\.a$', os.path.basename(implib)).group(1)
     identify_proc = subprocess.Popen(identify_cmd + [implib], stdout=subprocess.PIPE)
     dllnames = identify_proc.stdout.readlines()
+    print("dllnames", dllnames)
     if identify_proc.wait() != 0 or len(dllnames) != 1:
         print >>sys.stderr, 'Could not get a unique DLL name from %s.' % implib
         continue
     dllname = dllnames[0].rstrip('\n')
+    print("dllname", dllname)
 
     for dll in dlls:
         if dll.lower() == dllname.lower():
