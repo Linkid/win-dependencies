@@ -227,6 +227,27 @@ build_libogg()
 
 
 #
+# Build libvorbis
+#
+build_libvorbis()
+{
+    libvorbis_version="1.3.3"
+    info "Build libvorbis ${libvorbis_version}"
+
+    # download
+    download http://downloads.xiph.org/releases/vorbis/libvorbis-${libvorbis_version}.tar.xz
+    tar Jxf libvorbis-${libvorbis_version}.tar.xz
+
+    # compile
+    cd libvorbis-${libvorbis_version}
+    ./configure $COMMON_AUTOCONF_FLAGS
+    make
+    make install
+    cd ..
+}
+
+
+#
 # Build libtheora
 #
 build_libtheora()
@@ -247,27 +268,6 @@ build_libtheora()
     sed -i -e 's#\r##g' win32/xmingw32/libtheoraenc-all.def
     # config, make, install
     ./configure $COMMON_AUTOCONF_FLAGS --disable-examples --without-vorbis --disable-oggtest --with-ogg-includes=${PREFIX}/include --with-ogg-libraries=${PREFIX}/lib
-    make
-    make install
-    cd ..
-}
-
-
-#
-# Build libvorbis
-#
-build_libvorbis()
-{
-    libvorbis_version="1.3.3"
-    info "Build libvorbis ${libvorbis_version}"
-
-    # download
-    download http://downloads.xiph.org/releases/vorbis/libvorbis-${libvorbis_version}.tar.xz
-    tar Jxf libvorbis-${libvorbis_version}.tar.xz
-
-    # compile
-    cd libvorbis-${libvorbis_version}
-    ./configure $COMMON_AUTOCONF_FLAGS
     make
     make install
     cd ..
@@ -406,8 +406,8 @@ main()
     build_glib
     build_pkgconfig
     build_libogg
-    build_libtheora
     build_libvorbis
+    build_libtheora
     build soundtouch
     build_sdl_mixer
 

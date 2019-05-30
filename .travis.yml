@@ -29,8 +29,8 @@ script:
     - build_glib
     - build_pkgconfig
     - build_libogg
-    - build_libtheora
     - build_libvorbis
+    - build_libtheora
     - build_soundtouch
     - build_sdl_mixer
 
