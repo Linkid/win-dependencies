@@ -403,6 +403,10 @@ package_dist()
     cat readme.template dist/deps/URLs > dist/README.md
     rm -rf dist/deps/URLs
 
+    # debug ls
+    echo "debug 0"
+    find . -name "*vorbis*"
+
     # create the tarball
     cd dist
     tarball="fretwork-${WIN}-deppack-`date +%Y%m%d`.tar.gz"
