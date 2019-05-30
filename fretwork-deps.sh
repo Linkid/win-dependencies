@@ -383,6 +383,16 @@ package_dist()
     ${PLATFORM}-strip --strip-all dist/deps/bin/*.exe dist/deps/bin/*.dll
     ${PLATFORM}-strip --strip-debug dist/deps/lib/*.lib dist/deps/lib/*.a
 
+    # library and export files
+    deffiles=`find . -name "*.def"`
+    for deffile in deffiles
+    do
+        echo $deffile
+        filename=$(basename ${deffile%.*})
+        ${PLATFORM}-dlltool -k --output-lib bin/${filename}.lib -d $deffile
+        ${PLATFORM}-dlltool -k --output-exp bin/${filename}.exp -d $deffile
+    done
+
     # make a README
     cat readme.template dist/deps/URLs > dist/README.md
     rm -rf dist/deps/URLs
