@@ -80,6 +80,8 @@ for p in os.environ['PATH'].split(os.pathsep):
 EOF
     chmod -v 0755 "$PREFIX"/bin/"$CROSS_GCC"
     ln -svf "$CROSS_GCC" "$PREFIX"/bin/"$CROSS_GXX"
+
+    export PATH="$PREFIX"/bin:"$PATH"
 }
 
 
