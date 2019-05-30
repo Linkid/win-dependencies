@@ -55,31 +55,6 @@ build_workspace()
 exec env PKG_CONFIG_LIBDIR='$PREFIX'/lib/pkgconfig '`which pkg-config`' "\$@"
 EOF
     chmod -v 0755 "$PREFIX"/bin/pkg-config
-
-    # compiler wrapper
-    cat >"$PREFIX"/bin/"$CROSS_GCC" <<"EOF"
-#!/usr/bin/python
-import sys, os
-STATIC_LIBS = ['-lstdc++', '-lgcc', '-lgcc_eh']
-def fixed_args(args):
-    for n, arg in enumerate(args):
-        if arg in STATIC_LIBS:
-            yield '-Wl,-Bstatic'
-        yield arg
-        if arg in STATIC_LIBS:
-            yield '-Wl,--exclude-libs,lib%s.a,-Bdynamic' % arg[2:]
-        if n == 0:
-            yield '-static-libgcc'
-            yield '-static-libstdc++'
-            yield '-mpreferred-stack-boundary=2'
-            yield '-mincoming-stack-boundary=2'
-for p in os.environ['PATH'].split(os.pathsep):
-    candidate = os.path.join(p, os.path.basename(__file__))
-    if os.access(candidate, os.X_OK) and not os.path.samefile(candidate, __file__):
-        os.execv(candidate, list(fixed_args(sys.argv)))
-EOF
-    chmod -v 0755 "$PREFIX"/bin/"$CROSS_GCC"
-    ln -svf "$CROSS_GCC" "$PREFIX"/bin/"$CROSS_GXX"
 }
 
 
