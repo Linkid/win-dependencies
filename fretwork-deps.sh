@@ -267,7 +267,7 @@ build_libtheora()
     sed -i -e 's#\r##g' win32/xmingw32/libtheoradec-all.def
     sed -i -e 's#\r##g' win32/xmingw32/libtheoraenc-all.def
     # config, make, install
-    ./configure $COMMON_AUTOCONF_FLAGS --disable-examples --without-vorbis --disable-oggtest --with-ogg-includes=${PREFIX}/include --with-ogg-libraries=${PREFIX}/lib
+    ./configure $COMMON_AUTOCONF_FLAGS --disable-examples
     make
     make install
     cd ..
