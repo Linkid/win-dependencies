@@ -393,6 +393,7 @@ package_dist()
     info "Remove libtool and def files"
     ls -l dist/deps/lib/{*.la,*.def}
     rm -rf dist/deps/lib/{*.la,*.def}
+    rm -rf dist/deps/bin/pkg-config
 
     # generate .def files
     python2 makedefs.py dist/deps/lib dist/deps/bin "${PLATFORM}-dlltool -I"
