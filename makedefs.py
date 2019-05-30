@@ -108,6 +108,7 @@ dlls = os.listdir(sys.argv[2])
 identify_cmd = shlex.split(sys.argv[3])
 
 for implib in implibs:
+    print("implib", implib)
     dash_l_name = re.match(r'^lib(.*?)(?:\.dll)?\.a$', os.path.basename(implib)).group(1)
     identify_proc = subprocess.Popen(identify_cmd + [implib], stdout=subprocess.PIPE)
     dllnames = identify_proc.stdout.readlines()
