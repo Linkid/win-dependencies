@@ -407,7 +407,7 @@ package_dist()
 
     # debug ls
     echo "debug 0"
-    find . -name "*vorbis*"
+    find . -name "*vorbisfile*"
 
     # create the tarball
     cd dist
