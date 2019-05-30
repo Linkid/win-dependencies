@@ -368,8 +368,16 @@ package_dist()
     rm -rf dist/deps/lib/{*.la,*.def}
     rm -rf dist/deps/bin/pkg-config
 
+    # debug ls
+    echo "debug 0"
+    find . -name "*vorbisfile*"
+
     # generate .def files
     python2 makedefs.py dist/deps/lib dist/deps/bin "${PLATFORM}-dlltool -I"
+
+    # debug ls
+    echo "debug 1"
+    find . -name "*vorbisfile*"
 
     # strip binaries and libs
     ${PLATFORM}-strip --strip-all dist/deps/bin/*.exe dist/deps/bin/*.dll
@@ -380,7 +388,7 @@ package_dist()
     rm -rf dist/deps/URLs
 
     # debug ls
-    echo "debug 0"
+    echo "debug 2"
     find . -name "*vorbisfile*"
 
     # create the tarball
