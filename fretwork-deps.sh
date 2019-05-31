@@ -376,14 +376,16 @@ package_dist()
     ${PLATFORM}-strip --strip-debug dist/deps/lib/*.lib dist/deps/lib/*.a
 
     # library and export files
-    deffiles=`find . -name "dist/deps/*.def"`
+    cd dist/deps/
+    deffiles=`find . -name "*.def"`
     for deffile in $deffiles
     do
         echo $deffile
         filename=$(basename ${deffile%.*})
-        ${PLATFORM}-dlltool -k --output-lib dist/deps/bin/${filename}.lib -d $deffile
-        ${PLATFORM}-dlltool -k --output-exp dist/deps/bin/${filename}.exp -d $deffile
+        ${PLATFORM}-dlltool -k --output-lib bin/${filename}.lib -d $deffile
+        ${PLATFORM}-dlltool -k --output-exp bin/${filename}.exp -d $deffile
     done
+    cd -
 
     # make a README
     cat readme.template dist/deps/URLs > dist/README.md
