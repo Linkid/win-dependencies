@@ -382,8 +382,8 @@ package_dist()
     do
         echo $deffile
         filename=$(basename ${deffile%.*})
-        ${PLATFORM}-dlltool -k --output-lib bin/${filename}.lib -d $deffile
-        ${PLATFORM}-dlltool -k --output-exp bin/${filename}.exp -d $deffile
+        ${PLATFORM}-dlltool -k --output-lib lib/${filename}.lib -d $deffile
+        ${PLATFORM}-dlltool -k --output-exp lib/${filename}.exp -d $deffile
     done
     cd -
 
