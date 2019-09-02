@@ -55,6 +55,10 @@ build_workspace()
 exec env PKG_CONFIG_LIBDIR='$PREFIX'/lib/pkgconfig '`which pkg-config`' "\$@"
 EOF
     chmod -v 0755 "$PREFIX"/bin/pkg-config
+
+    # wine env
+    wine reg add 'HKCU\Environment' /v PATH /d Z:"`echo "$PREFIX" | tr '/' '\\'`"\\bin
+
 }
 
 

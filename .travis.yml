@@ -17,6 +17,7 @@ matrix:
 
 install:
     - sudo apt-get install -y
+        wine
         mingw-w64
         mingw-w64-tools
         gcc-mingw-w64
