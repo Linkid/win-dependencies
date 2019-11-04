@@ -424,7 +424,7 @@ main()
     build_libogg
     build_libvorbis
     build_libtheora
-    build soundtouch
+    build_soundtouch
     build_sdl_mixer
 
     package_dist
