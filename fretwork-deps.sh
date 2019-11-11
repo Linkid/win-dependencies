@@ -373,7 +373,8 @@ package_dist()
     rm -rf dist/deps/bin/pkg-config
 
     # generate .def files
-    python2 makedefs.py dist/deps/lib dist/deps/bin "${PLATFORM}-dlltool -I"
+    #python2 makedefs.py dist/deps/lib dist/deps/bin "${PLATFORM}-dlltool -I"
+    make_implib.sh xxx dist/deps
 
     # strip binaries and libs
     ${PLATFORM}-strip --strip-all dist/deps/bin/*.exe dist/deps/bin/*.dll
