@@ -24,10 +24,10 @@ make_implib() {
     name="${name_ext%.dll.a}"                 # XXX
     deffile="${working_dir}/lib/${name}.def"  # /dir/lib/XXX.def
     libfile="${working_dir}/lib/${name}.lib"  # /dir/lib/XXX.def
-    #echo $dllfile
-    #echo $dllname
-    #echo $deffile
-    #echo $libfile
+    echo $dllfile
+    echo $dllname
+    echo $deffile
+    echo $libfile
 
     # Extract exports from the .edata section, writing results to the .def file.
     LC_ALL=C objdump -p "$dllfile" | awk -vdllname="$dllname" '
@@ -74,7 +74,7 @@ main() {
     implibs=`ls ${working_dir}/lib/*.dll.a`
     for implib in $implibs
     do
-        #echo "*** ${implib}"
+        echo "*** ${implib}"
 
         # get dll names from the dll.a
         dll_a_name="${implib##*/}"
