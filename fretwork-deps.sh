@@ -434,7 +434,10 @@ package_dist()
 
     # generate .def files
     #python2 makedefs.py dist/deps/lib dist/deps/bin "${PLATFORM}-dlltool -I"
+    info "implib"
+    ls
     sh make_implib.sh xxx dist/deps
+    info "/implib"
 
     # strip binaries and libs
     ${PLATFORM}-strip --strip-all dist/deps/bin/*.exe dist/deps/bin/*.dll

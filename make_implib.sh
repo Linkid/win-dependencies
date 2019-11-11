@@ -106,6 +106,7 @@ main() {
 # lib/vorbisfile.exp        exp
 # lib/vorbisfile.lib        lib
 
+echo "Make lib: $1 - $2 |"
 arch=$1
 working_dir=$2
 main ${arch} ${working_dir}
