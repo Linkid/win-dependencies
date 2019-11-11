@@ -34,6 +34,7 @@ download()
     wget -q $filename $url
 
     # copy urls
+    echo $filename
     echo $1 >> ${PREFIX}/URLs
 }
 
